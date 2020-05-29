@@ -7,6 +7,9 @@ Clube do Cientista
 
 README:
     function to transform google earth .kml files list into a pandas DataFrame 
+    .kml files location:
+        'kmlfiles' folder into the current working directory
+        or directly in the current working directory
     DataFrame content: 
         Filename -> the .kml filename 
         Lon      -> meridians coordinate
@@ -15,6 +18,7 @@ README:
         fmt = 'df'   -> a DataFrame object  (default)
         fmt = 'csv'  -> save DataFrame in a .csv file
         fmt = 'both' -> both above outputs
+        
 """
 
 def kml_to_df (fmt = 'df'):    # fmt = output format 
