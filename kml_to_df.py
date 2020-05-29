@@ -6,7 +6,7 @@ Created on Thu May 28 16:49:08 2020
 Clube do Cientista
 
 README:
-    function to transform google earth .kml files list into a pandas DataFrame 
+    Python function to transform google earth .kml files list into a pandas DataFrame 
     .kml files location:
         'kmlfiles' folder into the current working directory
         or directly in the current working directory
