@@ -4,13 +4,20 @@ Created on Thu May 28 16:49:08 2020
 
 @author: Rafael G. de Menezes
 Oceanographer, Msc. Marine Biotechnology
-
 Clube do Cientista
 Biosustente Estudos Ambientais ltda.
 
+Developed with Python 3.7.6
+
 README:
-    Python function to transform google earth .kml files list into a pandas DataFrame 
-    DataFrame content: 
+    Python function to transform google earth .kml files list into a pandas DataFrame. 
+    Necessary function for the 'Mapping_kml' code (https://github.com/rafaelgmenezes/Mapping_kml).
+    
+    .kml files location:
+        folder in current working directory
+        or files directly in current working directory
+    
+    dataFrame ouput content: 
         Filename -> the .kml filename 
         Lon      -> meridians coordinate
         Lat      -> parallels coordinate
@@ -18,9 +25,6 @@ README:
         fmt = 'df'   -> a DataFrame object  (default)
         fmt = 'csv'  -> save DataFrame in a .csv file
         fmt = 'both' -> both outputs options above
-    .kml files location:
-        folder in current working directory
-        or files directly in current working directory
 """
 
 def kml_to_df (fmt = 'df'):    # fmt = output format 
@@ -70,7 +74,7 @@ def kml_to_df (fmt = 'df'):    # fmt = output format
        df = pd.concat([df,dfi], axis = 0, sort = False)
    df = df.reset_index(drop = True)
    
-   print('\nkml files located at :\n', os.getcwd(), '\n were properly converted')
+   print('\nkml files located at :\n', os.getcwd(), '\n were converted succesfully')
    os.chdir(path)
    if fmt == 'csv':
        df.to_csv('kml_to_df_output.csv')
