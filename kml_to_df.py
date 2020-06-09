@@ -17,10 +17,10 @@ README:
     output options: 
         fmt = 'df'   -> a DataFrame object  (default)
         fmt = 'csv'  -> save DataFrame in a .csv file
-        fmt = 'both' -> both above outputs
+        fmt = 'both' -> both outputs options above
     .kml files location:
-        'kmlfiles' folder into the current working directory
-        or directly in the current working directory
+        folder in current working directory
+        or files directly in current working directory
 """
 
 def kml_to_df (fmt = 'df'):    # fmt = output format 
