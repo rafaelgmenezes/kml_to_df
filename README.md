@@ -2,8 +2,8 @@
 Developed with Python 3.7.6
 
 README:
-    Python function to transform google earth .kml files list into a pandas DataFrame 
-    Necessary function for the 'Mapping_kml' code (https://github.com/rafaelgmenezes/Mapping_kml)
+    Python function to transform google earth .kml files list into a pandas DataFrame. 
+    Necessary function for the 'Mapping_kml' code (https://github.com/rafaelgmenezes/Mapping_kml).
     
     .kml files location:
         folder in current working directory
