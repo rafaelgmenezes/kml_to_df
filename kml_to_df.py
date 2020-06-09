@@ -2,14 +2,14 @@
 """
 Created on Thu May 28 16:49:08 2020
 
-@author: Rafael Menezes
+@author: Rafael G. de Menezes
+Oceanographer, Msc. Marine Biotechnology
+
 Clube do Cientista
+Biosustente Estudos Ambientais ltda.
 
 README:
     Python function to transform google earth .kml files list into a pandas DataFrame 
-    .kml files location:
-        'kmlfiles' folder into the current working directory
-        or directly in the current working directory
     DataFrame content: 
         Filename -> the .kml filename 
         Lon      -> meridians coordinate
@@ -18,7 +18,9 @@ README:
         fmt = 'df'   -> a DataFrame object  (default)
         fmt = 'csv'  -> save DataFrame in a .csv file
         fmt = 'both' -> both above outputs
-        
+    .kml files location:
+        'kmlfiles' folder into the current working directory
+        or directly in the current working directory
 """
 
 def kml_to_df (fmt = 'df'):    # fmt = output format 
@@ -30,16 +32,19 @@ def kml_to_df (fmt = 'df'):    # fmt = output format
        raise NameError("fmt argument is not set properly")           
     
    import os
+   from glob import glob
    path = os.getcwd()
-   try:
-       os.chdir('kmlfiles')
-       print ('kmlfiles directory located')
-   except FileNotFoundError:
-       print('FileNotFoundError --> kmlfiles directory does not exist.\nSo, files are expected to be in ', path)
-  
+   if len (glob('*.kml')) == 0:
+       try:
+           os.chdir('kmlfiles')   
+       except:
+           try:
+               os.chdir('kmlbase')
+           except FileNotFoundError:
+                raise FileNotFoundError ('kml files were not found')
+
    from bs4 import BeautifulSoup
    import pandas as pd
-   from glob import glob
    
    kml_list = glob('*.kml')
    df = pd.DataFrame(columns = ['Filename', 'Lon', 'Lat'])
@@ -65,6 +70,7 @@ def kml_to_df (fmt = 'df'):    # fmt = output format
        df = pd.concat([df,dfi], axis = 0, sort = False)
    df = df.reset_index(drop = True)
    
+   print('\nkml files located at :\n', os.getcwd(), '\n were properly converted')
    os.chdir(path)
    if fmt == 'csv':
        df.to_csv('kml_to_df_output.csv')
